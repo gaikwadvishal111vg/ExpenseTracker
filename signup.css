@@ -1,0 +1,259 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    /* height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center; */
+    /* background-color: rgba(81, 0, 255, 0.919); */
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    overflow: hidden;
+   background-image: url("https://images.pexels.com/photos/531880/pexels-photo-531880.jpeg?cs=srgb&dl=background-blur-clean-531880.jpg&fm=jp");
+background-repeat: no-repeat;
+background-size: cover;
+}
+.container{
+    position: relative;
+    height: 85vh;
+ 
+   left: 500px;
+   width: 500px;
+   top: 50px;
+   transition: all 0.5s ease;
+   box-shadow: 0 5px 10px rgba(6, 79, 104, 0.067);
+   background: rgba(64, 40, 40, 0.273);
+   text-align: center;
+}
+.container .form{
+    padding: 10px;
+    border-radius: 10px;
+    /* position: relative;
+    max-width: 500px; */
+    
+}
+.container .title{
+    margin-bottom: 10px;
+}
+
+.form .title::before{
+    content: "";
+    position: absolute;
+    left: 30%;
+    top: 9.25%;
+    height: 5px;
+    width: 200px;
+    background-color: #453ca9;
+
+}
+.form .input_field{
+    margin-top: 15px;
+position: relative;
+height: 50px;
+width: 100%;
+/* margin-left: 8%; */
+
+
+}
+.input_field input{
+height: 100%;
+width: 100%;
+border: 0;
+outline: 0;
+border-bottom: 3px solid  #1212cd;
+border-radius: 10px;
+padding:  0 60px;
+font-size: 18px;
+
+
+}
+.input_field{
+    position: relative;
+    width: 250px;
+}
+.input_field input{
+height: 100%;
+width: 100%;
+border: 0;
+outline: 0;
+background:   #1d2b3a;
+color: #fff;
+transition: 0.5s;
+border-radius: 10px;
+border: 1px solid rgba(255, 255, 255, 0.25);
+padding:  0 60px;
+font-size: 18px
+
+
+}
+.input_field span{
+    position: absolute;
+    left: 0;
+    padding: 10px;
+    pointer-events: none;
+    font-size: 20px;
+    color:rgba(255, 255, 255, 0.25);
+    text-transform: uppercase;
+    transition: 0.5s;
+}
+.input_field input:valid ~ span,
+.input_field input:focus ~ span{
+    color: #00dfc4;
+    transform: translateX(10px) translateY(-7px);
+    font-size: 1em;
+    padding: 0 10px;
+    background: #1d2b3a;
+    border-left: 1px solid #00dfc4;
+    border-right: 1px solid #00dfc4;
+    letter-spacing: 1px;
+}
+.input_field:nth-child(2) input:valid~ span,
+.input_field:nth-child(2) input:focus ~ span{
+background: #00dfc4;
+color: #1d2b3a;
+border-radius: 5px;
+}
+.input_field input:valid,
+.input_field input:focus{
+border: 1px solid #00dfc4;
+
+}
+
+
+.field input{
+    height: 50px;
+    width: 100%;
+    border: 0;
+    outline: 0;
+    font-size: 20px;
+    margin-top: 10px;
+    border-radius: 10px;
+    background-color:#0171d3;
+
+}
+.form_link{
+    text-align: center;
+    margin-top: 10px;
+}
+.form_link span, .form_link span a{
+    font-size: 20px;
+    font-weight: 700;
+    color: #232836;
+}
+.form a{
+    text-decoration: none;
+    color: #0171d3;
+
+}
+.form a:hover{
+    text-decoration: underline;
+}
+.fa-eye-slash{
+    font-size: 18px;
+    /* position: absolute; */
+    top: 50%;
+    right: -300px;
+    transform: translateY(-50%);
+   cursor: pointer;
+   padding: 5px;
+}
+.fa-eye{
+    font-size: 18px;
+    position: absolute;
+    top: 50%;
+    right: -300px;
+    transform: translateY(-50%);
+   cursor: pointer;
+   padding: 5px;
+   
+}
+.line{
+    width: 100%;
+    height: 2px;
+    position: relative;
+    background-color: rgb(255, 255, 255);
+    margin: 30px  0;
+}
+.line::before{
+    content: '.';
+position: relative;
+top: 50%;
+
+transform: translate(-50%, -50%);
+color: #232836;
+/* padding: ; */
+background-color: rgba(255, 255, 255, 0.075);
+}
+.field button{
+    color: #fff;
+    background-color: #0171d3;
+transition: all 0.5s ease;
+cursor: pointer;
+border-radius: 10px;
+font-size: 25px;
+}
+.form_link a{
+    font-size: 20px;
+    font-weight: bold;
+    color:#000;
+}
+.field button:hover{
+    background-color: #4e01d3;
+}
+.media_Login a{
+display: flex;
+background-color: #0171d3;
+height: 50px;
+align-items: center;
+justify-content: center;
+margin-top: 10px;
+}
+a.facebook{
+    background-color: #4267b2;
+    color: #fff;
+    border-radius: 10px;
+    
+}
+a.facebook, .icon {
+ padding-right: 30px;
+    font-size: 30px;
+    text-decoration: none;
+    list-style: none;
+    
+}
+a.facebook span{
+    font-weight: 600;
+    opacity: 0.6;
+   
+    font-size: 25px;
+    }
+a.google{
+    border: 1px solid gray;
+    color: #fff;
+    border-radius: 10px;
+    border: 0;
+    outline: 0;
+}
+a.google .fa-google-plus-g {
+    padding-right: 50px;
+    
+    font-size: 28px;
+    text-decoration: none;
+    list-style: none;
+
+}
+a.google span{
+font-weight: 600;
+opacity: 0.6;
+font-size: 25px;
+}
+@media screen and (max-width: 400px) {
+    .form{
+        padding: 15px 10px;
+    }
+    
+}

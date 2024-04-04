@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+    src="https://kit.fontawesome.com/d4fe34960a.js"
+    crossorigin="anonymous"
+  ></script>
+    <link rel="stylesheet" href="login.css">
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="form">
+        <div class="form login">
+          <div class="form_container">
+            <h2 class="title">Login</h2>
+            <hr />
+            <form
+              action="./home.html"
+              name="RegForm"
+              onsubmit="return validateForm()"
+            >
+              <div class="input_field">
+                <label for="EMail"></label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="name"
+                  name="EMail"
+                  placeholder="Enter Your Email"
+                />
+                <span>Email</span>
+              </div>
+              <div class="input_field">
+                <label for="Password"></label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="email"
+                  name="Password"
+                  placeholder="Enter Your password"
+                />
+                <span>Password</span>
+              </div>
+              <div class="form_link">
+                <a href="" class="forgot_password">Forgot Password?</a>
+              </div>
+              <div class="field button_field">
+                <input type="submit" name="login" value="Login" />
+              </div>
+            </form>
+            <div class="form_link">
+              <span>
+                Don't have an account?
+                <a href="./signup.html" class="signup_link">SignUp</a></span
+              >
+            </div>
+          </div>
+          <div class="line">
+            <div class="media_Login">
+              <a href="" class="facebook"
+                ><i class="fa-brands fa-facebook facebook-icon">
+                  <span>Login With Facebook</span>
+                </i></a
+              >
+            </div>
+            <div class="media_Login">
+              <a href="" class="google"
+                ><i
+                  class="fa-brands fa-google-plus-g"
+                  style="color: #e40707"
+                ></i>
+                <span>Login With Google</span>
+              </a>
+            </div>
+          
+        </div>
+      
+    </div>
+  </body>
+  <script>
+    let users = JSON.parse(localStorage.getItem("userList"));
+    console.log(users);
+    function validateForm() {
+      var email = document.forms["RegForm"]["EMail"].value;
+      var password = document.forms["RegForm"]["Password"].value;
+
+      if (email == "") {
+        alert("Please Enter Email");
+        return false;
+      }
+      if (password == "") {
+        alert("Please Enter Password");
+        return false;
+      }
+      if (
+        users.some(
+          (person) => person.email === email && person.password === password
+        )
+      ) {
+        alert("login Successfully");
+        return true;
+      } else {
+        alert("User Not Found");
+        return false;
+      }
+    }
+  </script>
+</html>

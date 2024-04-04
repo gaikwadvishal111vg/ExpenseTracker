@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/d4fe34960a.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Registration</title>
+    <link rel="stylesheet" href="signup.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="form">
+        <div class="form signup">
+          <div class="form_container">
+            <h2 class="title">Sign Up</h2>
+            <hr />
+            <form
+              action="./index.html"
+              name="RegForm"
+              onsubmit="return validateForm()"
+            >
+              <div class="input_field">
+                <label for="Name"></label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="name"
+                  name="Name"
+                  placeholder="Enter Your Name"
+                />
+                <span>Name</span>
+              </div>
+              <div class="input_field">
+                <label for="Email"></label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  name="Email"
+                  placeholder="Enter Your Email"
+                />
+                <span>Email</span>
+              </div>
+
+              <div class="input_field">
+                <label for="Password"></label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="password"
+                  name="Password"
+                  placeholder="Enter Your Password"
+                />
+                <span>Password</span>
+              </div>
+
+              <div class="input_field">
+                <label for="Confirm"></label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="confirm-password"
+                  name="Confirm"
+                  placeholder="Enter Your Confirm Password"
+                />
+                <span>Confirm Password</span>
+              </div>
+              <div class="field button_field">
+                <input type="submit" value="Register" name="Submit" class="" />
+              </div>
+            </form>
+            <div class="form_link">
+              <span>Already have an account? </span>
+               <a href="./index.html" class="link signup_link">Login</a></span> 
+            </div>
+          </div>
+          <div class="line">
+            <div class="media_Login">
+              <a href="" class="facebook">
+                <i class="fa-brands fa-facebook-f icon"></i>
+                <span>Login With Facebook</span>
+              </a>
+            </div>
+            <div class="media_Login">
+              <a href="" class="google"
+                ><i
+                  class="fa-brands fa-google-plus-g"
+                  style="color: #e40707"
+                ></i>
+                <span>Login With Google</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    function validateForm() {
+      var name = document.forms["RegForm"]["Name"];
+      var email = document.forms["RegForm"]["Email"];
+      var password = document.forms["RegForm"]["Password"];
+      var confirmPassword = document.forms["RegForm"]["Confirm"];
+
+      if (name.value == "") {
+        alert("Please Enter Name");
+        return false;
+      }
+      if (email.value == "") {
+        alert("Please Enter Email");
+        return false;
+      }
+      if (password.value == "") {
+        alert("Please Enter Password");
+        return false;
+      }
+      if (confirmPassword.value == "") {
+        alert("Please Enter Confirm Pasword");
+        return false;
+      }
+      if (password.value === confirmPassword.value) {
+        if (registerinLocalStorage()) {
+          alert("registeration Successfully");
+          return true;
+        } else {
+          return false;
+        }
+      } else {
+        alert("Please Enter Correct Password");
+        return false;
+      }
+      return true;
+    }
+    let users = JSON.parse(localStorage.getItem("userList"))
+      ? JSON.parse(localStorage.getItem("userList"))
+      : [];
+    // console.log(users);
+    function registerinLocalStorage() {
+      var name = document.forms["RegForm"]["Name"].value;
+      var email = document.forms["RegForm"]["Email"].value;
+      var password = document.forms["RegForm"]["Password"].value;
+      var confirmPassword = document.forms["RegForm"]["Confirm"].value;
+
+      let newUser = {
+        name: name,
+        email: email,
+        password: password,
+        confirmPassword: confirmPassword,
+      };
+      let userExits = users.some((users => users.email === newUser.email));
+      if (userExits) {
+        alert("User Already exits");
+        return false;
+      } else {
+        users.push(newUser);
+      }
+      // console.log(user);
+
+      let userString = JSON.stringify(users);
+      localStorage.setItem("userList", userString);
+
+      let currentUserString = JSON.stringify(newUser);
+      localStorage.setItem("currentUser", currentUserString);
+      return true;      
+    }
+    // registerinLocalStorage();
+  </script>
+</html>
